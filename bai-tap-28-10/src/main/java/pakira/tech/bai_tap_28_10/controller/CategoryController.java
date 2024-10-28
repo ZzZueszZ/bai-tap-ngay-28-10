@@ -23,8 +23,8 @@ public class CategoryController {
                                  @RequestParam(value = "size", defaultValue = "5") int size,
                                  @RequestParam(value = "keyword", defaultValue = "") String keyword) {
         Page<Category> categoryPage = categoryService.getAllCategories(page, size, keyword);
-        model.addAttribute("categories", categoryPage.getContent());
-        model.addAttribute("totalPages", categoryPage.getTotalPages());
+        model.addAttribute("categoryPage", categoryPage);
+        model.addAttribute("totalPages", categoryPage);
         model.addAttribute("currentPage", page);
         model.addAttribute("keyword", keyword);
         return "category/list";
@@ -43,7 +43,7 @@ public class CategoryController {
             return "category/form";
         }
         categoryService.saveCategory(category);
-        return "redirect:/categories";
+            return "redirect:/categories";
     }
 
     // Sửa danh mục
