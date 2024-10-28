@@ -2,12 +2,75 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Category Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Chọn font cho trang */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Căn giữa theo chiều ngang */
+            justify-content: center; /* Căn giữa theo chiều dọc */
+            height: 100vh; /* Chiều cao toàn bộ trang */
+            background-color: #f4f4f4; /* Màu nền */
+        }
+
+        h2 {
+            margin-bottom: 20px; /* Khoảng cách dưới cho tiêu đề */
+        }
+
+        form {
+            background: white; /* Màu nền cho biểu mẫu */
+            padding: 20px; /* Khoảng cách bên trong biểu mẫu */
+            border-radius: 5px; /* Bo góc cho biểu mẫu */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho biểu mẫu */
+            width: 300px; /* Chiều rộng của biểu mẫu */
+            display: flex;
+            flex-direction: column; /* Sắp xếp các phần tử theo chiều dọc */
+            align-items: stretch; /* Căn giữa các phần tử */
+        }
+
+        label {
+            margin-top: 10px; /* Khoảng cách trên cho nhãn */
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px; /* Khoảng cách bên trong */
+            border: 1px solid #ccc; /* Đường viền */
+            border-radius: 5px; /* Bo góc */
+            margin-top: 5px; /* Khoảng cách trên cho ô input */
+            width: 100%; /* Chiều rộng ô input */
+            box-sizing: border-box; /* Đảm bảo padding và border không làm tăng chiều rộng tổng */
+        }
+
+        button {
+            padding: 10px 20px; /* Padding cho nút */
+            background-color: #007bff; /* Màu nền của nút */
+            color: white; /* Màu chữ */
+            border: none; /* Không có đường viền */
+            border-radius: 5px; /* Bo góc */
+            cursor: pointer; /* Thay đổi con trỏ khi di chuột */
+            margin-top: 10px; /* Khoảng cách trên cho nút */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Màu nền khi hover */
+        }
+
+        span {
+            color: red; /* Màu chữ cho lỗi */
+            font-size: 0.9em; /* Kích thước chữ cho lỗi */
+            margin-top: 5px; /* Khoảng cách trên cho thông báo lỗi */
+        }
+    </style>
 </head>
 <body>
 <h2>Category Form</h2>
 
 <form th:action="@{/categories/save}" th:object="${category}" method="post">
     <input type="hidden" th:field="*{id}">
+
     <label>Name:</label>
     <input type="text" th:field="*{name}" placeholder="Category Name">
     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>

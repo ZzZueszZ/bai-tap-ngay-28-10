@@ -1,7 +1,75 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${title}">Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Chọn font cho trang */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Căn giữa theo chiều ngang */
+            justify-content: center; /* Căn giữa theo chiều dọc */
+            height: 100vh; /* Chiều cao toàn bộ trang */
+            background-color: #f4f4f4; /* Màu nền */
+        }
+
+        h2 {
+            margin: 20px 0; /* Khoảng cách trên và dưới */
+        }
+
+        form {
+            margin: 20px 0; /* Khoảng cách trên và dưới */
+            display: flex;
+            flex-direction: column; /* Sắp xếp các phần tử theo chiều dọc */
+            align-items: center; /* Căn giữa các phần tử */
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc; /* Đường viền */
+            border-radius: 5px; /* Bo góc */
+            margin-bottom: 10px; /* Khoảng cách dưới */
+            width: 300px; /* Chiều rộng của ô input */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff; /* Màu nền của nút */
+            color: white; /* Màu chữ */
+            border: none; /* Không có đường viền */
+            border-radius: 5px; /* Bo góc */
+            cursor: pointer; /* Thay đổi con trỏ khi di chuột */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Màu nền khi hover */
+        }
+
+        table {
+            margin: 20px 0; /* Khoảng cách trên và dưới */
+            border-collapse: collapse; /* Xóa khoảng cách giữa các ô */
+            width: 80%; /* Chiều rộng của bảng */
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center; /* Căn giữa nội dung trong ô */
+            border: 1px solid #ccc; /* Đường viền ô */
+        }
+
+        th {
+            background-color: #007bff; /* Màu nền cho tiêu đề bảng */
+            color: white; /* Màu chữ cho tiêu đề bảng */
+        }
+
+        /* Căn giữa pagination */
+        div {
+            margin: 20px 0;
+            text-align: center; /* Căn giữa nội dung trong div */
+        }
+    </style>
 </head>
 <body>
 <header th:replace="fragments/header :: header"></header>
